@@ -1,0 +1,23 @@
+use nu_plugin::Plugin;
+
+use crate::commands::{Else, FirstWhere, Is, Main, Then};
+
+mod commands;
+
+pub struct FpPlugin;
+
+impl Plugin for FpPlugin {
+    fn version(&self) -> String {
+        env!("CARGO_PKG_VERSION").into()
+    }
+
+    fn commands(&self) -> Vec<Box<dyn nu_plugin::PluginCommand<Plugin = Self>>> {
+        vec![
+            Box::new(Main),
+            Box::new(Is),
+            Box::new(Else),
+            Box::new(FirstWhere),
+            Box::new(Then),
+        ]
+    }
+}

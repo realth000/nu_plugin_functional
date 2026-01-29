@@ -1,0 +1,8 @@
+[package]
+name = "nu_plugin_functional"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+nu-plugin = "0.110.0"
+nu-protocol = { version = "0.110.0", features = ["plugin"] }
