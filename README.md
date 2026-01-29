@@ -6,6 +6,25 @@ WIP: **This plugin is still work in process**
 
 Tested with `nushell==0.110.0`
 
+## Build and install
+
+This plugin requires:
+
+* `nushell >= 0.110.0`
+* `rust` preferred lastest stable version.
+
+To build:
+
+```nu
+# Release build
+cargo build -r
+
+# Debug build
+cargo build
+```
+
+To install, follow the [official instruction for third-party plugins](https://www.nushell.sh/book/plugins.html#third-party-plugins).
+
 ## Commands
 
 ### else
