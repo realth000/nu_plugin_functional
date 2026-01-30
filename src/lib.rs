@@ -1,6 +1,6 @@
 use nu_plugin::Plugin;
 
-use crate::commands::{Else, FirstWhere, Is, Main, Pure, Then};
+use crate::commands::{FirstWhere, Is, Main, Other, Pure, Then};
 
 mod commands;
 
@@ -13,10 +13,10 @@ impl Plugin for FpPlugin {
 
     fn commands(&self) -> Vec<Box<dyn nu_plugin::PluginCommand<Plugin = Self>>> {
         vec![
-            Box::new(Main),
-            Box::new(Is),
-            Box::new(Else),
             Box::new(FirstWhere),
+            Box::new(Is),
+            Box::new(Main),
+            Box::new(Other),
             Box::new(Pure),
             Box::new(Then),
         ]

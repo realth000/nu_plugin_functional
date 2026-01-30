@@ -27,18 +27,18 @@ To install, follow the [official instruction for third-party plugins](https://ww
 
 ## Commands
 
-### else
+### other
 
 Use another value if input is `null`.
 
 ```nu
-$ null | fp else 100
+$ null | fp other 100
 100
 
-$ 1 | fp else 100
+$ 1 | fp other 100
 1
 
-$ let foo = 100; null | fp else {|| $foo + 2}
+$ let foo = 100; null | fp other {|| $foo + 2}
 102
 ```
 

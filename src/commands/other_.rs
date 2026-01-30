@@ -4,13 +4,13 @@ use nu_protocol::{Category, Example, Signature, Spanned, SyntaxShape, Type, Valu
 use crate::FpPlugin;
 
 #[derive(Clone)]
-pub struct Else;
+pub struct Other;
 
-impl SimplePluginCommand for Else {
+impl SimplePluginCommand for Other {
     type Plugin = FpPlugin;
 
     fn name(&self) -> &str {
-        "fp else"
+        "fp other"
     }
 
     fn signature(&self) -> nu_protocol::Signature {
@@ -60,22 +60,22 @@ The value can be a direct value, or a closure-like statement that produces that 
         vec![
             Example {
                 description: "Use \"foo\" if input is null",
-                example: "null | fp else foo",
+                example: "null | fp other foo",
                 result: Some(Value::test_string("foo")),
             },
             Example {
                 description: "Use \"foo\" if input is null, input is not null",
-                example: "1 | fp else foo",
+                example: "1 | fp other foo",
                 result: Some(Value::test_int(1)),
             },
             Example {
                 description: "Use 200 if no element in a list is larger than 5",
-                example: "[1, 2, 4] | fp first-where $it > 5 | fp else 100",
+                example: "[1, 2, 4] | fp first-where $it > 5 | fp other 100",
                 result: Some(Value::test_int(100)),
             },
             Example {
                 description: "Use 200 if no element in a list is larger than 5, input is not null",
-                example: "[1, 2, 4, 8] | fp first-where $it > 5 | fp else 100",
+                example: "[1, 2, 4, 8] | fp first-where $it > 5 | fp other 100",
                 result: Some(Value::test_int(8)),
             },
         ]

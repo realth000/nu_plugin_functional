@@ -3,15 +3,15 @@ use nu_protocol::{Category, Signature, Value};
 
 use crate::FpPlugin;
 
-mod else_;
 mod first_where;
 mod is;
+mod other_;
 mod pure;
 mod then;
 
-pub use else_::Else;
 pub use first_where::FirstWhere;
 pub use is::Is;
+pub use other_::Other;
 pub use pure::Pure;
 pub use then::Then;
 
@@ -37,9 +37,9 @@ impl SimplePluginCommand for Main {
 
 Provided commands:
 
-* else
 * first-where
 * is
+* other
 * then"#
     }
 
