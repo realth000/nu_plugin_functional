@@ -6,11 +6,13 @@ use crate::FpPlugin;
 mod else_;
 mod first_where;
 mod is;
+mod pure;
 mod then;
 
 pub use else_::Else;
 pub use first_where::FirstWhere;
 pub use is::Is;
+pub use pure::Pure;
 pub use then::Then;
 
 pub struct Main;
@@ -27,21 +29,22 @@ impl SimplePluginCommand for Main {
     }
 
     fn description(&self) -> &str {
-        "Several functional programming style commands for pipelines"
+        "Several functional programming style commands for pipelines."
     }
 
     fn extra_description(&self) -> &str {
-        r#"
-The `fp`  plugin provides several functional programming style commands to help piping commands.
+        r#"The `fp` plugin provides several functional programming style commands to help piping commands.
 
 Provided commands:
 
+* else
 * first-where
-"#
+* is
+* then"#
     }
 
     fn search_terms(&self) -> Vec<&str> {
-        vec!["fp"]
+        vec!["fp", "functional"]
     }
 
     fn run(

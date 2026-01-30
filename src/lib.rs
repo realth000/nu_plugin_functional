@@ -1,6 +1,6 @@
 use nu_plugin::Plugin;
 
-use crate::commands::{Else, FirstWhere, Is, Main, Then};
+use crate::commands::{Else, FirstWhere, Is, Main, Pure, Then};
 
 mod commands;
 
@@ -17,6 +17,7 @@ impl Plugin for FpPlugin {
             Box::new(Is),
             Box::new(Else),
             Box::new(FirstWhere),
+            Box::new(Pure),
             Box::new(Then),
         ]
     }

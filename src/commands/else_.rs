@@ -19,21 +19,19 @@ impl SimplePluginCommand for Else {
             .required(
                 "value",
                 SyntaxShape::Any,
-                "The value (or how to produce the value) to use when input is null",
+                "The value (or how to produce the value) to use when input is `null`",
             )
             .category(Category::Conversions)
     }
 
     fn description(&self) -> &str {
-        "Use another value when input is null"
+        "Use another value when input is `null`."
     }
 
     fn extra_description(&self) -> &str {
-        r#"
-Use another value to continue the pipeline if input is null.
+        r#"Use another value to continue the pipeline if input is `null`.
 
-The value can be a direct value, or a closure-like statement that produces that value.
-"#
+The value can be a direct value, or a closure-like statement that produces that value."#
     }
 
     fn search_terms(&self) -> Vec<&str> {

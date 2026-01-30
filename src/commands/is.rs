@@ -21,13 +21,11 @@ impl SimplePluginCommand for Is {
     }
 
     fn description(&self) -> &str {
-        "Check if the input data is a spcified type or not"
+        "Check if the input data is a spcified type or not."
     }
 
     fn extra_description(&self) -> &str {
-        r#"
-For any input data, check the data is a type or not, returns true if is
-"#
+        r#"For any input data, check the data is a type or not, returns true if is."#
     }
 
     fn search_terms(&self) -> Vec<&str> {

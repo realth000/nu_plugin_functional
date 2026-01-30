@@ -35,7 +35,7 @@ impl PluginCommand for FirstWhere {
             .required(
                 "condition",
                 SyntaxShape::RowCondition, // RowCondition covers Clousure type.
-                "Row condition or closure to filter the first element satify",
+                "Row condition or closure to filter the first element satify.",
             )
             .category(Category::Filters)
     }
@@ -45,15 +45,13 @@ impl PluginCommand for FirstWhere {
     }
 
     fn extra_description(&self) -> &str {
-        r#"
-Find the first element which meets a condition, returns `null` if no element meets the condition.
+        r#"Find the first element which meets a condition, returns `null` if no element meets the condition.
 
 Supported input types:
 
-* List
-* Table
-* Range
-"#
+* `list`
+* `table`
+* `range`"#
     }
 
     fn search_terms(&self) -> Vec<&str> {

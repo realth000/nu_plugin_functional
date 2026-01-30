@@ -25,19 +25,17 @@ impl SimplePluginCommand for Then {
                     SyntaxShape::Closure(Some(vec![SyntaxShape::Any])),
                     SyntaxShape::Closure(None),
                 ]),
-                "The value (or how to produce the value) to use when input is not null",
+                "The value (or how to produce the value) to use when input is not `null`.",
             )
             .category(Category::Conversions)
     }
 
     fn description(&self) -> &str {
-        "Do something with the input when input is not null"
+        "Do something with the input when input is not `null`."
     }
 
     fn extra_description(&self) -> &str {
-        r#"
-Do something (e.g. eval a closure) when input is not null, return null if input is null
-"#
+        r#"Do something (e.g. eval a closure) when input is not `null`, return `null` if input is `null`."#
     }
 
     fn search_terms(&self) -> Vec<&str> {
