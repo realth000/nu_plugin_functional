@@ -40,6 +40,7 @@ Provided commands:
 * first-where
 * is
 * other
+* pure
 * then"#
     }
 
