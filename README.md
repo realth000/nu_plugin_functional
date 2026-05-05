@@ -4,13 +4,13 @@ Functional-like commands for nushell.
 
 WIP: **This plugin is still work in process**
 
-Tested with `nushell==0.110.0`
+Tested with `nushell==0.112.2`
 
 ## Build and install
 
 This plugin requires:
 
-* `nushell >= 0.110.0`
+* `nushell >= 0.112.2`
 * `rust` preferred lastest stable version.
 
 To build:
