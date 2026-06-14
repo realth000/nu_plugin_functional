@@ -129,3 +129,23 @@ nothing
 $ [] | fp pure | describe
 nothing
 ```
+
+### handle
+
+A combination of `then` and `other`: do something when input is good and do some other thing if input is bad.
+
+"bad" means the input is null.
+
+```nu
+$ 100 | fp handle {$in + 200} {200}
+300
+
+$ null | fp handle {$in + 200} {200}
+200
+
+$ [1,2,3] | fp pure | fp handle {|x| $x | each {$in + 10} } {[200,300,400]}
+[11,12,13]
+
+$ [] | fp pure | fp handle {|x| $x | each {$in + 10} } {[200,300,400]}
+[200,300,400]
+```

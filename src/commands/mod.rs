@@ -4,12 +4,14 @@ use nu_protocol::{Category, Signature, Value};
 use crate::FpPlugin;
 
 mod first_where;
+mod handle;
 mod is;
 mod other_;
 mod pure;
 mod then;
 
 pub use first_where::FirstWhere;
+pub use handle::Handle;
 pub use is::Is;
 pub use other_::Other;
 pub use pure::Pure;
@@ -38,6 +40,7 @@ impl SimplePluginCommand for Main {
 Provided commands:
 
 * first-where
+* handle
 * is
 * other
 * pure
