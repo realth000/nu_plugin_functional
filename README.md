@@ -4,13 +4,13 @@ Functional-like commands for nushell.
 
 WIP: **This plugin is still work in process**
 
-Tested with `nushell==0.112.2`
+Tested with `nushell==0.113.1`
 
 ## Build and install
 
 This plugin requires:
 
-* `nushell >= 0.112.2`
+* `nushell >= 0.113.1`
 * `rust` preferred lastest stable version.
 
 To build:
@@ -87,4 +87,45 @@ $ null | fp then 100
 
 $ [1, 2, 4, 8] | fp first-where $it > 5 | fp then {$in * 2}
 16
+```
+
+### pure
+
+Convert a value to null if it is the default value of its type.
+
+For the following types:
+
+* int: 0
+* float: 0.0, Nan, Inf, -Inf
+* string: (empty string) '', ""
+* boolean: false
+* duration 0day, 0hr, 0min, 0sec
+* fize-size: 0b, 0kb, 0mb, 0gb, 0tb, 0pb, 0eb
+* list: []
+* record: {}
+* table: [{}]
+* nothing: null
+
+values will be converted to null.
+
+These yypes are not supported:
+
+* date
+* range
+* binary
+* closure
+* block
+* any
+* glob
+* error
+
+```nu
+$ 0 | fp pure | describe
+nothing
+
+$ false | fp pure | describe
+nothing
+
+$ [] | fp pure | describe
+nothing
 ```
