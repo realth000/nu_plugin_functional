@@ -6,14 +6,14 @@ use crate::FpPlugin;
 mod first_where;
 mod handle;
 mod is;
-mod other_;
+mod other;
 mod pure;
 mod then;
 
 pub use first_where::FirstWhere;
 pub use handle::Handle;
 pub use is::Is;
-pub use other_::Other;
+pub use other::Other;
 pub use pure::Pure;
 pub use then::Then;
 
