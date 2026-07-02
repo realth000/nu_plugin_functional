@@ -1,6 +1,6 @@
 use nu_plugin::Plugin;
 
-use crate::commands::{FirstWhere, Handle, Is, Main, Other, Pure, Then};
+use crate::commands::{FirstWhere, Handle, Invoke, Is, Main, Other, Pure, Then};
 
 mod commands;
 
@@ -15,6 +15,7 @@ impl Plugin for FpPlugin {
         vec![
             Box::new(FirstWhere),
             Box::new(Handle),
+            Box::new(Invoke),
             Box::new(Is),
             Box::new(Main),
             Box::new(Other),
