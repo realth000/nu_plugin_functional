@@ -21,16 +21,10 @@ impl PluginCommand for FirstWhere {
             .input_output_types(vec![
                 (
                     Type::List(Box::new(Type::Any)),
-                    Type::OneOf(Box::new([Type::Any, Type::Nothing])),
+                    Type::one_of([Type::Any, Type::Nothing]),
                 ),
-                (
-                    Type::table(),
-                    Type::OneOf(Box::new([Type::record(), Type::Nothing])),
-                ),
-                (
-                    Type::Range,
-                    Type::OneOf(Box::new([Type::Any, Type::Nothing])),
-                ),
+                (Type::table(), Type::one_of([Type::record(), Type::Nothing])),
+                (Type::Range, Type::one_of([Type::Any, Type::Nothing])),
             ])
             .required(
                 "condition",

@@ -1,5 +1,5 @@
 use nu_plugin::SimplePluginCommand;
-use nu_protocol::{Category, Example, Signature, SyntaxShape, Type, Value};
+use nu_protocol::{Category, CompareTypes, Example, Signature, SyntaxShape, Type, Value};
 
 use crate::FpPlugin;
 

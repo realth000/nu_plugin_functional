@@ -14,7 +14,7 @@ impl SimplePluginCommand for Pure {
 
     fn signature(&self) -> nu_protocol::Signature {
         Signature::build(self.name())
-            .input_output_type(Type::Any, Type::OneOf(Box::new([Type::Any, Type::Nothing])))
+            .input_output_type(Type::Any, Type::one_of([Type::Any, Type::Nothing]))
             .category(Category::Conversions)
     }
 
