@@ -48,7 +48,7 @@ spreading args syntax.
         _plugin: &Self::Plugin,
         engine: &nu_plugin::EngineInterface,
         call: &nu_plugin::EvaluatedCall,
-        input: nu_protocol::PipelineData,
+        _input: nu_protocol::PipelineData,
     ) -> Result<nu_protocol::PipelineData, nu_protocol::LabeledError> {
         let contents = call.req::<Vec<Value>>(0)?;
         if contents.is_empty() {
@@ -72,9 +72,17 @@ spreading args syntax.
         let command = engine.find_decl(&command).unwrap().unwrap();
         let mut evaled_call = EvaluatedCall::new(call.head);
 
-        for x in contents.into_iter().skip(1) {
-            println!(">>> arg: {x:?}");
-            evaled_call.add_flag(x.into_string().unwrap().into_spanned(call.head));
+        for raw_arg in contents.into_iter().skip(1) {
+            let parsed_arg = raw_arg.as_str().unwrap().trim_start_matches(|ch| ch == '-');
+            if parsed_arg.len() == 1 {
+                return Err(
+                    LabeledError::new(format!("Short name flags are not allowed")).with_label(
+                        format!("Short name flag \"{parsed_arg}\" not works at runtime, use long flag name instead"),
+                        raw_arg.span(),
+                    ).with_help("For example, use `--long` instead `-l` for ls command"),
+                );
+            }
+            evaled_call.add_flag(parsed_arg.into_spanned(call.head));
         }
 
         let result = engine.call_decl(
