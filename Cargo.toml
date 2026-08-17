@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-nu-plugin = "0.114.1"
-nu-protocol = { version = "0.114.1", features = ["plugin"] }
+nu-plugin = "0.115.0"
+nu-protocol = { version = "0.115.0", features = ["plugin"] }
