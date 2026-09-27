@@ -4,7 +4,7 @@ Functional-like commands for nushell.
 
 WIP: **This plugin is still work in process**
 
-Compatible with `nushell==0.115.0`
+Compatible with `nushell==0.116.0`
 
 ## Build and install
 
